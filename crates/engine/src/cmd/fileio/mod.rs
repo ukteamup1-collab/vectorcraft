@@ -663,12 +663,14 @@ pub const FORMATS: &[Format] = &[
     reader("affinity", "Affinity", &["af", "afdesign", "afpub"], "application/x-affinity", false),
     // Photoshop's large document format: read like a PSD (its merged image), never written.
     reader("psb", "PSB", &["psb"], "image/x-psb", true),
+    reader("cdr", "CDR (experimental, first page)", &["cdr"], "application/vnd.corel-draw", false),
     // PostScript programs, read as EPS files are; Print to PostScript writes them, exports don't.
     reader("ps", "PostScript", &["ps"], "application/postscript", false),
 ];
 
 /// Every extension `document.open` reads (the "All readable files" filter of open dialogs).
 pub const OPEN_EXTS: &[&str] = &[
+    "cdr",
     "vectorcraft",
     "drawcraft",
     "svg",
@@ -707,7 +709,7 @@ pub const OPEN_EXTS: &[&str] = &[
 /// `.epsf`, `.ps` or Targa type (File › Open and Place still read them all). On Linux the desktop
 /// entry's EPS type (shared-mime-info's) also covers `.epsf`, so file managers offer VectorCraft
 /// for it.
-pub const UNASSOCIATED_EXTS: &[&str] = &["psd", "psb", "epsf", "ps", "tga", "vda", "icb", "vst"];
+pub const UNASSOCIATED_EXTS: &[&str] = &["cdr", "psd", "psb", "epsf", "ps", "tga", "vda", "icb", "vst"];
 
 /// The extension that picks each writable format when exporting (the format's first; PNG-8 shares
 /// `.png` with PNG, so `.png` comes once), in [`FORMATS`] order.
@@ -734,6 +736,7 @@ pub const DOCX_EXTS: &[&str] = &["docx"];
 /// Every extension File → Place reads: [`OPEN_EXTS`], [`TEXT_EXTS`], [`RTF_EXTS`] and
 /// [`DOCX_EXTS`].
 pub const PLACE_EXTS: &[&str] = &[
+    "cdr",
     "vectorcraft",
     "drawcraft",
     "svg",
@@ -1444,3 +1447,6 @@ mod tests_pdfwebview;
 
 #[cfg(test)]
 mod tests_pdf13;
+
+#[cfg(test)]
+mod tests_cdr;

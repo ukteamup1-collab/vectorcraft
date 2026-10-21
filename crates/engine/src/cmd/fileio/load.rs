@@ -214,6 +214,13 @@ pub fn load_with(name: &str, bytes: &[u8], opts: &LoadOptions) -> Result<Loaded>
     let mut preview_only = false;
     let mut editing_data = false;
     let (mut doc, mut warnings, restored) = match format.id {
+        "cdr" => {
+            let page = vectorcraft_cdr_bridge::read_page(bytes, &title, 0).map_err(err)?;
+            let (doc, svg_notes) = import_svg(&page.svg, None)?;
+            let mut notes = page.warnings;
+            notes.extend(svg_notes);
+            (doc, notes, false)
+        }
         // EPS, .ps and PostScript .ai: the document our EPS files carry, else the PostScript read.
         _ if matches!(format.id, "eps" | "ps") || vectorcraft_pdf::is_postscript(bytes) => {
             let editing = vectorcraft_eps::has_native(bytes).then_some((true, || vectorcraft_eps::native(bytes)));

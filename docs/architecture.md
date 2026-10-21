@@ -12,6 +12,8 @@ A Cargo workspace of 23 library crates under `crates/`, three apps under `apps/`
 pure Rust (no handwritten JS/TS). The same engine runs the desktop app, the browser build (WASM), the headless
 CLI and the MCP server.
 
+Development branch addition: `cdr-bridge` is a layer 3 format adapter. It reads CDR through pinned TraceDraw dependencies and supplies SVG to the existing importer. See [CDR foundation status](cdr-foundation/STATUS.md).
+
 ## Layers
 
 `cargo xtask layers` (part of `cargo xtask ci`) enforces that a crate depends only on lower layers, and that

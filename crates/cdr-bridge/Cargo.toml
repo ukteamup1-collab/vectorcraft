@@ -1,0 +1,19 @@
+[package]
+name = "vectorcraft-cdr-bridge"
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+description = "Experimental CDR-to-SVG bridge for editable vector import"
+
+[lints]
+workspace = true
+
+[dependencies]
+tracedraw-cdr = { git = "https://github.com/igtoth/tracedraw", rev = "255cd805cc72a75f5d5b6d429ebf54e54c60fb21" }
+tracedraw-io = { git = "https://github.com/igtoth/tracedraw", rev = "255cd805cc72a75f5d5b6d429ebf54e54c60fb21" }
+
+[dev-dependencies]
+tracedraw-core = { git = "https://github.com/igtoth/tracedraw", rev = "255cd805cc72a75f5d5b6d429ebf54e54c60fb21" }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = { version = "0.3", features = ["wasm_js"] }

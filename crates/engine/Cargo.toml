@@ -15,6 +15,7 @@ default = ["bundled-fonts"]
 bundled-fonts = ["vectorcraft-text/bundled-fonts"]
 
 [dependencies]
+vectorcraft-cdr-bridge = { path = "../cdr-bridge" }
 # Which paths stored in documents may be opened.
 craft-docpath = { workspace = true }
 vectorcraft-geom = { workspace = true }
@@ -46,6 +47,8 @@ thiserror = { workspace = true }
 log = { workspace = true }
 
 [dev-dependencies]
+tracedraw-cdr = { git = "https://github.com/igtoth/tracedraw", rev = "255cd805cc72a75f5d5b6d429ebf54e54c60fb21" }
+tracedraw-core = { git = "https://github.com/igtoth/tracedraw", rev = "255cd805cc72a75f5d5b6d429ebf54e54c60fb21" }
 vectorcraft-affinity = { workspace = true, features = ["synth"] }
 crc32fast = { workspace = true }
 vectorcraft-testkit = { workspace = true }
