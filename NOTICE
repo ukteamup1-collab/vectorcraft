@@ -123,3 +123,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+CDR development branch: the experimental import bridge depends on TraceDraw,
+copyright 2026 Ighor Toth and the TraceDraw contributors, MIT OR Apache-2.0.
+Source: https://github.com/igtoth/tracedraw
+Pinned commit: 255cd805cc72a75f5d5b6d429ebf54e54c60fb21.
+The parser and SVG writer are used as open-source dependencies; their notices
+and licenses remain in their source distributions.

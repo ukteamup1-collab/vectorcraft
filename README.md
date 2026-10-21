@@ -1,3 +1,5 @@
+> Development branch: experimental CDR first-page import is being added. See [CDR foundation status](docs/cdr-foundation/STATUS.md) for limitations, verification and Windows 7/10/11 targets. This source snapshot is not a finished product or a tested Windows release.
+
 <p align="center">
   <a href="https://getartcraft.com/">
     <picture>
