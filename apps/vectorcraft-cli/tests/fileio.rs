@@ -87,7 +87,15 @@ fn images_open_at_their_pixel_size() {
 #[test]
 fn help_lists_readable_formats() {
     let out = ok(&["--help"]);
-    assert!(out.contains("Readable formats: .vectorcraft") && out.contains(".ait") && out.contains(".webp"), "{out}");
+    let readable = out.lines()
+        .find_map(|line| line.strip_prefix("Readable formats: "))
+        .expect("readable formats line");
+    for extension in [".cdr", ".vectorcraft", ".ait", ".webp"] {
+        assert!(
+            readable.split(',').any(|item| item.trim() == extension),
+            "missing {extension}: {out}"
+        );
+    }
 }
 
 #[test]
